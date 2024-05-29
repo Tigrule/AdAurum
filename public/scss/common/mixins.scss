@@ -1,4 +1,16 @@
-@mixin mixin1($color1, $width1) {
-  color: $color1;
-  width: $width1;
+@mixin flex($justyfy) {
+  @extend %flex;
+  justify-content: $justyfy;
+}
+
+
+@mixin icon-with-content($gap) {
+  @include flex(space-between);
+  gap: $gap;
+}
+
+@mixin icon($bg-color, $radius){
+  @extend %icon;
+  background-color: $bg-color;
+  border-radius: $radius;
 }

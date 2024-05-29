@@ -1,12 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="styles/style.css">
 </head>
+
 <body>
-  Hello, world!
+  <header class="header">
+    <div class="container">
+      <div class="row">
+        <div class="header__logo-wrapper">
+          <img src="source/images/logo.svg" alt="" class="header__logo">
+        </div>
+        <nav class="header-nav nav">
+          <div class="nav__item process">
+            <div class="icon-wrapper icon-wrapper_pink">
+              <img src="source/images/convert-card.svg" alt="">
+            </div>
+            <div class="text">5%</div>
+          </div>
+          <div class="user nav__item">
+            <div class="icon-wrapper icon-wrapper_pink">
+              <img src="source/images/user.svg" alt="">
+            </div>
+            <div class="text">Username@adaurum.ru</div>
+          </div>
+          <div class="nav__controls controls">
+            <div class="nav__item">
+              <div class="icon-wrapper icon-wrapper_white">
+                <img src="source/images/settings.svg" alt="">
+              </div>
+            </div>
+            <div class="nav__item">
+              <div class="icon-wrapper icon-wrapper_white">
+                <img src="source/images/login.svg" alt="">
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <main class="main">
+    <div class="container">
+      <div class="row flex">
+        <div class="content-block requests">
+          <h2 class="content-block__item content-block__header requests__header">Файлы</h2>
+          <div class="content-block__item requests-list">
+            <div class="requests-list__header-wrapper flex">
+              <h3 class="requests-list__header">Медиапланы</h3>
+              <div class="requests-list__header-arrow request-list__header-arrow_opened"></div>
+            </div>
+            <div class="requests-list__list">
+              <div class="requests-list__list-item requests-item">
+                <div class="requests-item__content">
+                  <div class="requests-item__content-icon">
+                    <img src="source/images/xml.svg" alt="">
+                  </div>
+                  <div class="requests-item__content-text">Companyname 11/23</div>
+                </div>
+                <div class="requests-item__icon">
+                  <img class="img-ready" src="source/images/arrow-download.svg" alt="down">
+                  <img class="img-in-preparation" src="source/images/refresh.svg" alt="refresh">
+                </div>
+                
+              </div>
+              <div class="requests-list__prompt icon-with-content">
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
 </body>
+
 </html>

@@ -1,3 +1,18 @@
+@font-face {
+  font-family: "Inter";
+  src: url(../source/fonts/inter/Inter-Regular.ttf);
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Inter";
+  src: url(../source/fonts/inter/Inter-Medium.ttf);
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Inter";
+  src: url(../source/fonts/inter/Inter-SemiBold.ttf);
+  font-weight: 600;
+}
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -17,6 +32,7 @@ time, mark, audio, video {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
+  box-sizing: border-box;
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -48,15 +64,149 @@ table {
   border-spacing: 0;
 }
 
-body {
+.requests .requests-list .requests-item__content, .requests .requests-list .requests-item, .header .nav .controls, .header .nav__item, .header .nav, .header .row {
   display: flex;
   align-items: center;
-  justify-content: center;
+}
+
+.requests .requests-list .requests-item__icon.ready, .requests .requests-list .requests-item__icon, .header .nav__item .icon-wrapper_white, .header .nav__item .icon-wrapper_pink, .header .nav__item .icon-wrapper {
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  flex-shrink: 0;
+}
+.requests .requests-list .requests-item__icon.ready img, .requests .requests-list .requests-item__icon img, .header .nav__item .icon-wrapper_white img, .header .nav__item .icon-wrapper_pink img, .header .nav__item .icon-wrapper img, .requests .requests-list .requests-item__icon.ready svg, .requests .requests-list .requests-item__icon svg, .header .nav__item .icon-wrapper_white svg, .header .nav__item .icon-wrapper_pink svg, .header .nav__item .icon-wrapper svg {
+  width: 24px;
+  height: 24px;
 }
 
 body {
-  color: red;
-  width: 1000px;
+  background-color: #F5F5F5;
+  font-family: "Inter";
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.header {
+  padding: 33px 0;
+}
+.header .row {
+  justify-content: space-between;
+}
+.header__logo-wrapper {
+  width: 219px;
+}
+.header__logo-wrapper img {
+  width: 100%;
+}
+.header .nav {
+  justify-content: space-between;
+  gap: 26px;
+}
+.header .nav__item {
+  justify-content: space-between;
+  gap: 8px;
+}
+.header .nav__item .icon-wrapper_pink {
+  background-color: #EE26C2;
+  border-radius: 50%;
+}
+.header .nav__item .icon-wrapper_white {
+  background-color: #fff;
+  border-radius: 50%;
+}
+.header .nav .controls {
+  justify-content: space-between;
+  gap: 12px;
+}
+.header .nav .text {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 21.78px;
+}
+
+.content-block {
+  background: #fff;
+  border-radius: 20px;
+  padding: 28px;
+}
+.content-block__header {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 29.05px;
+}
+
+.requests {
+  padding-inline: 20px;
+}
+.requests__header {
+  margin-bottom: 30px;
+}
+.requests .requests-list__header-wrapper {
+  justify-content: space-between;
+  padding-right: 9px;
+  margin-bottom: 20px;
+}
+.requests .requests-list__header {
+  font-size: 18px;
+  font-weight: 600;
+}
+.requests .requests-list__header-arrow {
+  width: 24px;
+  height: 24px;
+  background-image: url(../source/images/arrow-up.svg);
+}
+.requests .requests-list .requests-item {
+  background-color: #F5F5F5;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 8px;
+}
+.requests .requests-list .requests-item__content {
+  justify-content: space-between;
+  gap: 9px;
+}
+.requests .requests-list .requests-item__content-icon {
+  width: 24px;
+  height: 24px;
+}
+.requests .requests-list .requests-item__content-icon .in-preparaton .img-ready {
+  display: none;
+}
+.requests .requests-list .requests-item__content-icon .in-preparaton .img-in-preparation {
+  display: inline;
+}
+.requests .requests-list .requests-item__content__text {
+  font-size: 15px;
+  font-weight: 400;
+}
+.requests .requests-list .requests-item__icon {
+  background-color: #949494;
+  border-radius: 4px;
+}
+.requests .requests-list .requests-item__icon .img-ready {
+  display: none;
+}
+.requests .requests-list .requests-item__icon .img-in-preparation {
+  display: inline;
+}
+.requests .requests-list .requests-item__icon.ready {
+  background-color: #F4D4ED;
+  border-radius: 4px;
+}
+.requests .requests-list .requests-item__icon.ready .img-ready {
+  display: inline;
+}
+.requests .requests-list .requests-item__icon.ready .img-in-preparation {
+  display: none;
 }
 
 /*# sourceMappingURL=style.css.map */

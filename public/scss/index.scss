@@ -1,7 +1,5 @@
 @import "./common/";
 @import "./components/header/";
-
-body {
-  @include mixin1(red, 1000px);
-  @extend %flex-center;
-}
+@import "./components/main/";
+@import "./components/chat/";
+@import "./components/requests/";

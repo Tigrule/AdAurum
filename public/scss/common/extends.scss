@@ -1,5 +1,15 @@
-%flex-center {
+%flex {
   display: flex;
   align-items: center;
-  justify-content: center;
+}
+
+%icon {
+  width: $icon-outer-size;
+  height: $icon-outer-size;
+  padding: $icon-padding;
+  flex-shrink: 0;
+  img, svg {
+    width: $icon-inner-size;
+    height: $icon-inner-size;
+  }
 }

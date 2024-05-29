@@ -1,3 +1,47 @@
-header {
-  
+.header {
+  padding: 33px 0;
+
+  .row {
+    @include flex(space-between);
+  }
+
+  &__logo-wrapper {
+    width: 219px;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .nav {
+    @include flex(space-between);
+    gap: 26px;
+
+    &__item {
+      @include icon-with-content(8px);
+
+      .icon-wrapper {
+        @extend %icon;
+
+        &_pink {
+          @include icon($pink-1, 50%);
+        }
+
+        &_white {
+          @include icon($white-1, 50%);
+        }
+      }
+    }
+
+    .controls {
+      @include flex(space-between);
+      gap: 12px;
+    }
+
+    .text {
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 21.78px;
+    }
+  }
 }

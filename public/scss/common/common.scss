@@ -1,0 +1,13 @@
+body {
+  background-color: $body-background;
+  font-family: 'Inter';
+}
+.container {
+  max-width: $desktop-width;
+  margin: 0 auto;
+}
+
+.flex {
+display: flex;
+align-items: center;
+}
