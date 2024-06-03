@@ -1,4 +1,8 @@
-.requests {
+main .requests {
+  max-width: 295px;
+  width: 100%;
+  flex-shrink: 0;
+
   &__header {
     margin-bottom: 30px;
   }
@@ -6,6 +10,10 @@
   padding-inline: 20px;
 
   .requests-list {
+    &#mediaplanes {
+      margin-bottom: 30px;
+    }
+
     &__header-wrapper {
       justify-content: space-between;
       padding-right: 9px;
@@ -26,14 +34,19 @@
     .requests-item {
       background-color: $gray-bg-1;
       @include icon-with-content(18px);
-      margin-bottom: 8px;
+
+      &:not(&:last-child) {
+        margin-bottom: 8px;
+      }
 
       &__content {
-        @include icon-with-content(9px);
+        @include icon-with-content(0);
 
         &-icon {
+          box-sizing: content-box;
           width: 24px;
           height: 24px;
+          padding: 9px;
 
           .in-preparaton {
             .img-ready {
@@ -46,7 +59,7 @@
           }
         }
 
-        &__text {
+        &-text {
           font-size: 15px;
           font-weight: 400;
         }
@@ -55,27 +68,59 @@
       &__icon {
         @include icon($grey-1, 4px);
 
-        .img-ready {
-          display: none;
+
+
+      }
+
+      .img-ready {
+        display: none;
+      }
+
+      .img-in-preparation {
+        display: inline;
+      }
+
+      &.ready {
+
+        .img-status {
+          @include icon($pink-2, 4px);
         }
 
-        .img-in-preparation {
+        .img-ready {
           display: inline;
         }
 
-        &.ready {
-
-          @include icon($pink-2, 4px);
-
-          .img-ready {
-            display: inline;
-          }
-
-          .img-in-preparation {
-            display: none;
-          }
-
+        .img-in-preparation {
+          display: none;
         }
+      }
+    }
+
+    &__prompt {
+      @include icon-with-content(5px);
+      justify-content: start;
+
+      // &-icon {};
+
+      &-text {
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 16.2px;
+
+      }
+
+      ;
+    }
+
+    &__more {
+      text-align: right;
+      margin-top: 12px;
+
+      &-text {
+        color: $pink-1;
+        font-size: 15px;
+        line-height: 18.15px;
+        font-weight: 400;
       }
     }
   }
