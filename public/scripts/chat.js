@@ -1,13 +1,15 @@
 'use strict'
 
-const imgPath = 'source/images/';
+const imgPath = './source/images/';
 const messageList = document.querySelector('.chat-messages');
 const messageTextArea = document.querySelector('#chat-message-area');
 const messageSendButton = document.querySelector('#chat-message-send');
-const SendForm = document.querySelector('#send-form');
+const sendForm = document.querySelector('#send-form');
 
-const mediaOrderButton = document.querySelector('#media-button');
-const reportOrderButton = document.querySelector('#report-button');
+let isDateShowTime = 1;
+let showTimer;
+
+let enterSubmit = new Event('submit');
 
 const helper = {
   id: 1,
@@ -21,9 +23,7 @@ const user = {
   image: imgPath + 'jim.jpeg'
 }
 
-const addClientMessage = (messageText = 'empty') => {
-  const message = new Message(user, messageText, new Date(), 'question');
-}
+
 
 const getTimeFromDate = (innerDate) => {
   return innerDate.toLocaleString('ru', {
@@ -32,12 +32,16 @@ const getTimeFromDate = (innerDate) => {
   })
 }
 
-let isDateShowTime = 1;
-let showTimer;
-
 const showTimeTimerStart = () => {
   showTimer = setTimeout(() => isDateShowTime = 1, 3600 * 1000);
 }
+
+
+
+const addClientMessage = (messageText = 'empty') => {
+  const message = new Message(user, messageText, new Date(), 'question');
+}
+
 
 class Message {
   constructor(person = user, message, date, type = 'question') {
@@ -85,6 +89,7 @@ class Message {
     messageBlock.innerHTML = layout;
     return messageBlock;
   }
+  
   returnTimeBlock() {
     const timeBlock = document.createElement('div');
     timeBlock.classList.add('chat-messages__date')
@@ -106,24 +111,40 @@ class Message {
   }
 }
 
-const messages = [
-  new Message(
-    helper,
-    'Lörem ipsum suparad pepött då satsig och soskap metrosocial. Sapongar trenåvis i hypol innan visiskap, heterovybelt. Besav ditugen stenosade om exopagt.',
-    null,
-    'answer'
-  ),
-  new Message(
-    user,
-    'Lörem ipsum suparad pepött då satsig och soskap metrosocial. Sapongar trenåvis i hypol innan visiskap, heterovybelt. Besav ditugen stenosade om exopagt.',
-    null,
-    'question',
-  ),
-]
+const chatSubmitFunction = (e) => {
+  (e) => {
+    e.preventDefault();
+    if (messageTextArea.value) {
+      document.querySelector('.chat-curtain').classList.add('d-none')
+      addClientMessage(messageTextArea.value);
+      messageTextArea.value = '';
+      const sendMessage = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve({
+            person: helper,
+            message: `Мы получили ваше сообщение, работаем над вашим вопросом.`,
+            date: new Date(),
+            type: 'answer',
+          }
+          );
+        }, 2000)
+      }
+      );
+      sendMessage.then(
+        result => {
+          let { person, message, date, type } = result;
+          new Message(person, message, date, type);
+        }
+      )
+    } else return;
+  }
+};
 
-SendForm.addEventListener('submit', (e) => {
+
+sendForm.addEventListener('submit', (e) => {
   e.preventDefault();
   if (messageTextArea.value) {
+    document.querySelector('.chat-curtain').classList.add('d-none')
     addClientMessage(messageTextArea.value);
     messageTextArea.value = '';
     const sendMessage = new Promise((resolve, reject) => {
@@ -148,18 +169,38 @@ SendForm.addEventListener('submit', (e) => {
 }
 )
 
+messageTextArea.onfocus = function () {
+  document.querySelector('.chat-textfield').classList.add('pink-border')
+}
+messageTextArea.onblur = function () {
+  document.querySelector('.chat-textfield').classList.remove('pink-border')
+}
+
+document.addEventListener('keydown', event => {
+  if (event.code === 'Enter') {
+    console.log('enter was pressed');
+
+    sendForm.dispatchEvent(enterSubmit);
+  }
+});
+
 document.querySelectorAll('.order-button').forEach((el) => {
   el.addEventListener('click', {
   })
 })
 
-let summ = 0;
 
-// let monthes = prompt('Сколько месяцев?')
-// for (let i = 0; i < monthes; i++) {
-//   let proc = Math.round((summ * 0.0083 * 100)) / 100
-//   console.log(
-//    `${i + 1}. ${summ} - проценты - ${proc}`
-//   )
-//   summ += proc + 12000;
-// }
+// const messages = [
+//   new Message(
+//     helper,
+//     'Lörem ipsum suparad pepött då satsig och soskap metrosocial. Sapongar trenåvis i hypol innan visiskap, heterovybelt. Besav ditugen stenosade om exopagt.',
+//     null,
+//     'answer'
+//   ),
+//   new Message(
+//     user,
+//     'Lörem ipsum suparad pepött då satsig och soskap metrosocial. Sapongar trenåvis i hypol innan visiskap, heterovybelt. Besav ditugen stenosade om exopagt.',
+//     null,
+//     'question',
+//   ),
+// ]

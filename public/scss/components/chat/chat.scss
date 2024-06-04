@@ -40,18 +40,18 @@ main .chat {
 
     display: flex;
     flex-direction: column;
-    height: 100%;
+    // height: 100%;
+    height: $chat-content-height;
 
     &-wrapper {
       flex-grow: 1;
       background-color: $gray-bg-2;
       border-radius: $content-block-radius;
       position: relative;
-      overflow: hidden;
     }
 
     &-main {
-      overflow: hidden scroll;
+      overflow: hidden;
       height: 100%;
       padding: 20px;
 
@@ -59,16 +59,18 @@ main .chat {
       flex-direction: column;
       justify-content: space-between;
 
-      &::-webkit-scrollbar {
-        width: 6px;
-        // color: #b5b5b5;
-      }
-
-      &::-webkit-scrollbar-thumb {
-        background-color: #b5b5b5;
-      }
-
       .chat-messages {
+        overflow: hidden scroll;
+
+        &::-webkit-scrollbar {
+          width: 6px;
+          // color: #b5b5b5;
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background-color: #b5b5b5;
+        }
+
         display: flex;
         flex-direction: column;
         align-items: end;
@@ -159,6 +161,30 @@ main .chat {
           }
 
         }
+
+        .chat-curtain {
+          max-width: 470px;
+          margin: 30px auto;
+
+          &__image {
+            width: fit-content;
+            margin: 0 auto;
+
+            img {
+              width: 190px;
+              height: 193px;
+            }
+          }
+
+          &__text {
+            text-align: center;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 23.2px;
+
+            margin-top: 20px;
+          }
+        }
       }
     }
 
@@ -173,6 +199,7 @@ main .chat {
           border-radius: 21px;
           border: none;
           outline: none;
+          cursor: pointer;
 
           font-size: 16px;
           font-weight: 600;
@@ -194,20 +221,25 @@ main .chat {
       height: 144px;
 
       background-color: $white-1;
-      border: 2px solid $pink-1;
       border-radius: 20px;
       overflow: hidden;
+
+      border: 2px solid transparent;
+
+      &.pink-border {
+        border: 2px solid $pink-1;
+      }
 
       &__left {
         display: flex;
         height: 100%;
         flex-direction: column;
         flex-grow: 1;
+        justify-content: space-between;
       }
 
       &__textarea {
         &-wrapper {
-          flex-grow: 1;
 
           textarea {
             border: none;
@@ -247,6 +279,7 @@ main .chat {
           @include icon($pink-1, 50%);
           outline: none;
           border: none;
+          cursor: pointer;
         }
 
         &-text {

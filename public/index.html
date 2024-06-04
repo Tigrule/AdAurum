@@ -49,13 +49,21 @@
       <div class="row">
         <div class="content-block requests">
           <h2 class="content-block__item content-block__header requests__header">Файлы</h2>
-          <div class="content-block__item requests-list" id="mediaplanes">
+          <div class="requests__curtain">
+            <div class="requests__curtain-img">
+              <img src="./source/images/welcon-files-foulder.svg" alt="files">
+            </div>
+            <div class="requests__curtain-text">
+              Закажи у личного помощника медиаплан. Он появится в этом разделе
+            </div>
+          </div>
+          <div class="content-block__item requests-list d-none" id="mediaplanes">
             <div class="requests-list__header-wrapper flex">
               <h3 class="requests-list__header">Медиапланы</h3>
               <div class="requests-list__header-arrow request-list__header-arrow_opened"></div>
             </div>
-            <div class="requests-list__list">
-              <div class="requests-list__list-item requests-item">
+            <div class="requests-list__list" id="mediaplanes-list">
+              <!-- <div class="requests-list__list-item requests-item">
                 <div class="requests-item__content">
                   <div class="requests-item__content-icon">
                     <img src="source/images/xml.svg" alt="">
@@ -114,18 +122,19 @@
                   <img class="img-in-preparation" src="source/images/refresh.svg" alt="refresh">
                 </div>
 
-              </div>
+              </div> -->
             </div>
             <div class="requests-list__more">
               <span class="requests-list__more-text">Показать ещё</span>
             </div>
           </div>
-          <div class="content-block__item requests-list" id="reports">
+          <div class="content-block__item requests-list d-none" id="reports">
             <div class="requests-list__header-wrapper flex">
-              <h3 class="requests-list__header">Медиапланы</h3>
+              <h3 class="requests-list__header">Отчёты</h3>
               <div class="requests-list__header-arrow request-list__header-arrow_opened"></div>
             </div>
-            <div class="requests-list__list">
+            <div class="requests-list__list" id="reports-list">
+<!-- 
               <div class="requests-list__list-item requests-item">
                 <div class="requests-item__content">
                   <div class="requests-item__content-icon">
@@ -137,8 +146,8 @@
                   <img class="img-ready" src="source/images/arrow-download.svg" alt="down">
                   <img class="img-in-preparation" src="source/images/refresh.svg" alt="refresh">
                 </div>
-
               </div>
+
               <div class="requests-list__prompt icon-with-content">
                 <div class="requests-list__prompt-icon">
                   <img src="source/images/Subtract.svg" alt="!">
@@ -185,12 +194,13 @@
                   <img class="img-in-preparation" src="source/images/refresh.svg" alt="refresh">
                 </div>
 
-              </div>
+              </div> -->
             </div>
             <div class="requests-list__more">
               <span class="requests-list__more-text">Показать ещё</span>
             </div>
           </div>
+
         </div>
         <div class="content-block chat">
           <div class="content-block__item content-block__header chat__header-wrapper">
@@ -211,6 +221,15 @@
             <div class="chat__content">
               <div class="chat__content-main">
                 <div class="chat-messages">
+                  <div class="chat-curtain">
+                    <div class="chat-curtain__image">
+                      <img src="./source/images/welcome-chat-face.svg" alt="Welcome">
+                    </div>
+                    <div class="chat-curtain__text">
+                      Это чат с администратором. Ты можешь с ним пообщаться по любому вопросу о нашем сервисе и узнать о
+                      ходе работы
+                    </div>
+                  </div>
                   <!-- <div class="chat-messages__date">
                     <span class="chat-messages__date-day">Сегодня</span>, <span
                       class="chat-messages__date-time">20:43</span>
@@ -275,7 +294,7 @@
                   <div class="chat-textfield__right">
                     <div class="chat-textfield__send" id="chat-message-send">
                       <button type="submit" class="chat-textfield__send-button">
-                          <img src="source/images/send-2.svg" alt="send">
+                        <img src="source/images/send-2.svg" alt="send">
                       </button>
                       <div class="chat-textfield__send-text">
                         Enter
@@ -293,15 +312,9 @@
   </main>
 
   <script src="scripts/chat.js"></script>
+  <script src="scripts/files.js"></script>
 
-  <!-- <script>
-    console.log(
-      new Date().toLocaleString('ru', {
-        hour: '2-digit',
-        minute: '2-digit'
-      })
-    )
-  </script> -->
+  <script></script>
 </body>
 
 </html>

@@ -94,6 +94,14 @@ body {
   align-items: center;
 }
 
+.d-none {
+  display: none !important;
+}
+
+.no-events {
+  pointer-events: none;
+}
+
 .header {
   padding: 33px 0;
 }
@@ -180,33 +188,33 @@ main .chat__header-wrapper .helper-info__icon {
 main .chat__content {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: 596px;
 }
 main .chat__content-wrapper {
   flex-grow: 1;
   background-color: #EBEBEB;
   border-radius: 20px;
   position: relative;
-  overflow: hidden;
 }
 main .chat__content-main {
-  overflow: hidden scroll;
+  overflow: hidden;
   height: 100%;
   padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-main .chat__content-main::-webkit-scrollbar {
-  width: 6px;
-}
-main .chat__content-main::-webkit-scrollbar-thumb {
-  background-color: #b5b5b5;
-}
 main .chat__content-main .chat-messages {
+  overflow: hidden scroll;
   display: flex;
   flex-direction: column;
   align-items: end;
+}
+main .chat__content-main .chat-messages::-webkit-scrollbar {
+  width: 6px;
+}
+main .chat__content-main .chat-messages::-webkit-scrollbar-thumb {
+  background-color: #b5b5b5;
 }
 main .chat__content-main .chat-messages__date {
   align-self: center;
@@ -275,6 +283,25 @@ main .chat__content-main .chat-messages .answer .description {
 main .chat__content-main .chat-messages .answer .name {
   display: inline;
 }
+main .chat__content-main .chat-messages .chat-curtain {
+  max-width: 470px;
+  margin: 30px auto;
+}
+main .chat__content-main .chat-messages .chat-curtain__image {
+  width: fit-content;
+  margin: 0 auto;
+}
+main .chat__content-main .chat-messages .chat-curtain__image img {
+  width: 190px;
+  height: 193px;
+}
+main .chat__content-main .chat-messages .chat-curtain__text {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 23.2px;
+  margin-top: 20px;
+}
 main .chat__content .chat-order .buttons {
   display: flex;
   justify-content: start;
@@ -285,6 +312,7 @@ main .chat__content .chat-order .buttons__button {
   border-radius: 21px;
   border: none;
   outline: none;
+  cursor: pointer;
   font-size: 16px;
   font-weight: 600;
   line-height: 19.36px;
@@ -299,18 +327,19 @@ main .chat__content .chat-textfield {
   padding: 20px 20px 12px;
   height: 144px;
   background-color: #fff;
-  border: 2px solid #EE26C2;
   border-radius: 20px;
   overflow: hidden;
+  border: 2px solid transparent;
+}
+main .chat__content .chat-textfield.pink-border {
+  border: 2px solid #EE26C2;
 }
 main .chat__content .chat-textfield__left {
   display: flex;
   height: 100%;
   flex-direction: column;
   flex-grow: 1;
-}
-main .chat__content .chat-textfield__textarea-wrapper {
-  flex-grow: 1;
+  justify-content: space-between;
 }
 main .chat__content .chat-textfield__textarea-wrapper textarea {
   border: none;
@@ -345,6 +374,7 @@ main .chat__content .chat-textfield__send-button {
   border-radius: 50%;
   outline: none;
   border: none;
+  cursor: pointer;
 }
 main .chat__content .chat-textfield__send-text {
   font-size: 10px;
@@ -361,8 +391,32 @@ main .requests {
 main .requests__header {
   margin-bottom: 30px;
 }
+main .requests__curtain {
+  margin-top: 46px;
+}
+main .requests__curtain-img {
+  margin-bottom: 30px;
+}
+main .requests__curtain-text {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 23.2px;
+  text-align: center;
+}
+main .requests .requests-list {
+  overflow: hidden;
+}
 main .requests .requests-list#mediaplanes {
   margin-bottom: 30px;
+  overflow: hidden;
+}
+main .requests .requests-list #mediaplanes-list {
+  height: 222px;
+  overflow: hidden;
+}
+main .requests .requests-list #reports-list {
+  height: 172px;
+  overflow: hidden;
 }
 main .requests .requests-list__header-wrapper {
   justify-content: space-between;
@@ -430,6 +484,7 @@ main .requests .requests-list__prompt {
   justify-content: space-between;
   gap: 5px;
   justify-content: start;
+  margin-bottom: 14px;
 }
 main .requests .requests-list__prompt-text {
   font-size: 12px;

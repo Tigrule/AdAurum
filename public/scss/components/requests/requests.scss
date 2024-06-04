@@ -9,9 +9,35 @@ main .requests {
 
   padding-inline: 20px;
 
+  &__curtain {
+    margin-top: 46px;
+    &-img {
+      margin-bottom: 30px;
+    }
+
+    &-text {
+
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 23.2px;
+      text-align: center;
+      
+    }
+  }
+
   .requests-list {
+    overflow: hidden;
     &#mediaplanes {
       margin-bottom: 30px;
+      overflow: hidden;
+    }
+    #mediaplanes-list {
+      height: $mediaplanes-list-height;
+      overflow: hidden;
+    }
+    #reports-list {
+      height: $reports-list-height;
+      overflow: hidden;
     }
 
     &__header-wrapper {
@@ -99,8 +125,9 @@ main .requests {
     &__prompt {
       @include icon-with-content(5px);
       justify-content: start;
-
       // &-icon {};
+
+      margin-bottom: 14px;
 
       &-text {
         font-size: 12px;

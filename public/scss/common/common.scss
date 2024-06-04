@@ -11,3 +11,11 @@ body {
   display: flex;
   align-items: center;
 }
+
+.d-none {
+  display: none !important;
+}
+
+.no-events {
+  pointer-events: none;
+}
