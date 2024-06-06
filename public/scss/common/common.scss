@@ -19,3 +19,10 @@ body {
 .no-events {
   pointer-events: none;
 }
+
+@media (max-width: $middle-max-screen-width) {
+  .container {
+    margin-right: 40px;
+    margin-left: 40px;
+  }
+}

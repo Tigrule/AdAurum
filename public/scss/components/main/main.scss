@@ -5,15 +5,16 @@ main {
     gap: 30px;
     height: 709px;
   }
-.content-block {
-  background: $content-block-whitebg;
-  border-radius: $content-block-radius;
-  padding: 28px;
 
-  &__header {
-    font-size: 24px;
-    font-weight: 600;
-    line-height: 29.05px;
+  .content-block {
+    background: $content-block-whitebg;
+    border-radius: $content-block-radius;
+    padding: 28px;
+
+    &__header {
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 29.05px;
+    }
   }
-}
 }

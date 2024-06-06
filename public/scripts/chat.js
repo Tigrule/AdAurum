@@ -89,7 +89,7 @@ class Message {
     messageBlock.innerHTML = layout;
     return messageBlock;
   }
-  
+
   returnTimeBlock() {
     const timeBlock = document.createElement('div');
     timeBlock.classList.add('chat-messages__date')
@@ -140,6 +140,21 @@ const chatSubmitFunction = (e) => {
   }
 };
 
+document.addEventListener('keydown', event => {
+  if (event.code === 'Enter') {
+    event.preventDefault();
+    if (messageTextArea.value) {
+      console.log('enter was pressed');
+  
+      // sendForm.dispatchEvent(enterSubmit); 
+      sendForm.submit();
+    } else {
+      messageTextArea.reportValidity();
+    }
+    messageTextArea.value = '';
+  }
+});
+
 
 sendForm.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -176,13 +191,7 @@ messageTextArea.onblur = function () {
   document.querySelector('.chat-textfield').classList.remove('pink-border')
 }
 
-document.addEventListener('keydown', event => {
-  if (event.code === 'Enter') {
-    console.log('enter was pressed');
 
-    sendForm.dispatchEvent(enterSubmit);
-  }
-});
 
 document.querySelectorAll('.order-button').forEach((el) => {
   el.addEventListener('click', {

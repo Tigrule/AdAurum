@@ -1,0 +1,14 @@
+@media (max-width: 991px) {
+  
+main {
+  .row {
+    flex-wrap: wrap;
+    gap: 20px;
+    height: auto
+  }
+
+  .content-block {
+    padding: 20px;
+  }
+}
+}

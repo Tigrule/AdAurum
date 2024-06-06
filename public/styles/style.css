@@ -102,6 +102,12 @@ body {
   pointer-events: none;
 }
 
+@media (max-width: 991px) {
+  .container {
+    margin-right: 40px;
+    margin-left: 40px;
+  }
+}
 .header {
   padding: 33px 0;
 }
@@ -157,6 +163,16 @@ main .content-block__header {
   line-height: 29.05px;
 }
 
+@media (max-width: 991px) {
+  main .row {
+    flex-wrap: wrap;
+    gap: 20px;
+    height: auto;
+  }
+  main .content-block {
+    padding: 20px;
+  }
+}
 main .chat {
   flex-grow: 1;
   display: flex;
@@ -164,6 +180,7 @@ main .chat {
 }
 main .chat__header-wrapper {
   justify-content: space-between;
+  flex-wrap: wrap;
   padding-bottom: 30px;
 }
 main .chat__header-wrapper .helper-info {
@@ -352,6 +369,11 @@ main .chat__content .chat-textfield__textarea-wrapper textarea {
   font-weight: 500;
   line-height: 19.36px;
 }
+main .chat__content .chat-textfield__textarea-wrapper textarea::placeholder {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20.25px;
+}
 main .chat__content .chat-textfield__media {
   display: flex;
   gap: 20px;
@@ -459,6 +481,7 @@ main .requests .requests-list .requests-item__content-icon .in-preparaton .img-i
 main .requests .requests-list .requests-item__content-text {
   font-size: 15px;
   font-weight: 400;
+  word-break: break-all;
 }
 main .requests .requests-list .requests-item__icon {
   background-color: #949494;
@@ -500,6 +523,28 @@ main .requests .requests-list__more-text {
   font-size: 15px;
   line-height: 18.15px;
   font-weight: 400;
+}
+
+@media (max-width: 991px) {
+  main .requests {
+    max-width: 100%;
+  }
+  main .requests-wrapper {
+    display: flex;
+    justify-content: space-around;
+    gap: 19px;
+  }
+  main .requests__curtain {
+    display: flex;
+    align-items: center;
+    margin: 0 9.8% 0 10.8%;
+  }
+  main .requests__curtain-text {
+    text-align: left;
+  }
+  main .requests .requests-list {
+    width: 50%;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

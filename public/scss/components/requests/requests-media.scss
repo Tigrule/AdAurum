@@ -1,0 +1,28 @@
+@media (max-width: $middle-max-screen-width) {
+  main .requests {
+    max-width: 100%;
+
+    &-wrapper {
+      display: flex;
+      justify-content: space-around;
+      gap: 19px;
+    }
+    &__curtain {
+      display: flex;
+      align-items: center;
+      margin: 0 9.8% 0 10.8%;
+      &-img {        
+      }
+      &-text {
+        text-align: left;
+      }
+    }
+    .requests-list {
+      width: 50%;
+    }
+    .requests-list {
+
+    }
+   
+  }
+}
