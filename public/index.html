@@ -16,17 +16,25 @@
           <img src="source/images/logo.svg" alt="" class="header__logo">
         </div>
         <nav class="header-nav nav">
-          <div class="nav__item process">
+          <div class="nav__item process desktop">
             <div class="icon-wrapper icon-wrapper_pink">
               <img src="source/images/convert-card.svg" alt="">
             </div>
             <div class="text">5%</div>
           </div>
-          <div class="user nav__item">
+          <div class="user nav__item desktop">
             <div class="icon-wrapper icon-wrapper_pink">
               <img src="source/images/user.svg" alt="">
             </div>
             <div class="text">Username@adaurum.ru</div>
+          </div>
+          <div class="mobile">
+            <div class="user nav__item">
+              <div class="text">Username@adaurum.ru</div>
+            </div>
+            <div class="nav__item process">
+              <div class="text">5% выручки</div>
+            </div>
           </div>
           <div class="nav__controls controls">
             <div class="nav__item">
@@ -47,6 +55,22 @@
   <main class="main">
     <div class="container">
       <div class="row">
+        <div class="content-block requests-mobile">
+          <div class="requests-mobile__button mob-requests-button" id="mobile-medias-button">
+            <div class="mob-requests-button__text">Медиапланы</div>
+            <div class="mob-requests-button__icon">
+              <img class="in-preparation" src="./source/images/Subtract.svg" alt="!">
+              <img class="ready" src="./source/images/little-ok.svg" alt="!">
+            </div>
+          </div>
+          <div class="requests-mobile__button mob-requests-button" id="mobile-reports-button">
+            <div class="mob-requests-button__text">Отчеты</div>
+            <div class="mob-requests-button__icon">
+              <img src="./source/images/Subtract.svg" alt="!">
+              <img class="ready" src="./source/images/little-ok.svg" alt="!">
+            </div>
+          </div>
+        </div>
         <div class="content-block requests">
           <h2 class="content-block__item content-block__header requests__header">Файлы</h2>
           <div class="requests__curtain">
@@ -201,12 +225,15 @@
             <h2 class="chat__header">
               Личный помощник
             </h2>
+            <div class="helper-info__icon helper-info__icon_mobile">
+              <img src="source/images/triple.svg" alt=":">
+            </div>
             <div class="chat__header-helper helper-info">
               <div class="helper-info__text">
                 <span class="helper-info__text-name">Jim Davidson</span><span class="helper-info__text-email">Jim
                   Davidson@adaurum.ru</span>
               </div>
-              <div class="helper-info__icon">
+              <div class="helper-info__icon helper-info__icon_desktop">
                 <img src="source/images/triple.svg" alt=":">
               </div>
             </div>
@@ -306,6 +333,42 @@
     </div>
   </main>
 
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="footer__logo footer__item">
+          <img src="./source/images/footer-logo.svg" alt="PinkChicken">
+        </div>
+        <div class="footer-item">Политика конфиденциальности</div>
+        <div class="footer-item footer-item_with-icon">
+          <div class="footer-item-img">
+            <img src="./source/images/sms-tracking.png" alt="mail">
+          </div>
+          <div class="footer__item-text e-mail">
+            <a href="mailto:pinkchicken@adaurum.ru">pinkchicken@adaurum.ru</a>
+          </div>
+        </div>
+        <div class="footer-item footer-item_with-icon global">
+          <div class="footer-item-img">
+            <img src="./source/images/global.svg" alt="global">
+          </div>
+          <div class="footer__item-text footer-langs">
+            <div class="footer-langs__item active">RU</div>
+            <div class="footer-langs__item">EN</div>
+            <div class="footer-langs__item">TUR</div>
+          </div>
+        </div>
+        <div class="footer-item footer-item_with-icon">
+          <div class="footer-item-img">
+            <img src="./source/images/telegram.svg" alt="telegram">
+          </div>
+          <div class="footer-item-img">
+            <img src="./source/images/whatsapp.svg" alt="whatsapp">
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
   <script src="scripts/chat.js"></script>
   <script src="scripts/files.js"></script>
 

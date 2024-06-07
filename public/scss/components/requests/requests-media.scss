@@ -7,22 +7,34 @@
       justify-content: space-around;
       gap: 19px;
     }
+
     &__curtain {
       display: flex;
       align-items: center;
       margin: 0 9.8% 0 10.8%;
-      &-img {        
-      }
+
       &-text {
         text-align: left;
       }
     }
+
     .requests-list {
       width: 50%;
     }
-    .requests-list {
+  }
+}
 
+@media (max-width: $mobile-max-screen-width) {
+  main {
+    .requests {
+      display: none;
     }
-   
+
+    .requests-mobile {
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      gap: 12px;
+    }
   }
 }

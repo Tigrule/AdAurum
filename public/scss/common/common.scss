@@ -22,7 +22,14 @@ body {
 
 @media (max-width: $middle-max-screen-width) {
   .container {
-    margin-right: 40px;
-    margin-left: 40px;
+    // margin-right: 40px;
+    // margin-left: 40px;
+    max-width: 688px;
   }
 }
+
+// @media (max-width: $mobile-max-screen-width) {
+//   .container {
+    
+//   }
+// }

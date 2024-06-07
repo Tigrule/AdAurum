@@ -1,5 +1,5 @@
 .header {
-  padding: 33px 0;
+  padding: 33px 20px;
 
   .row {
     @include flex(space-between);
@@ -17,6 +17,8 @@
     @include flex(space-between);
     gap: 26px;
 
+
+
     &__item {
       @include icon-with-content(8px);
 
@@ -31,6 +33,10 @@
           @include icon($white-1, 50%);
         }
       }
+    }
+
+    .mobile {
+      display: none;
     }
 
     .controls {

@@ -4,6 +4,8 @@ const mediaOrderButton = document.querySelector('#media-button');
 const reportOrderButton = document.querySelector('#report-button');
 const mediasList = document.querySelector('#mediaplanes-list');
 const reportsList = document.querySelector('#reports-list');
+const mobileMediasButton = document.querySelector('#mobile-medias-button')
+const mobileReportsButton = document.querySelector('#mobile-reports-button')
 
 const mediasArray = [];
 const reportsArray = [];
@@ -11,8 +13,9 @@ let mediaPrompt;
 let reportPrompt;
 
 let fileId = 0;
+let displayList = false;
 
-class File {
+class OrderedFile {
   constructor(fileName = 'Companyname', format = 'xml') {
     this.fileName = fileName ?? 'Companyname';
     this.format = format;
@@ -120,7 +123,7 @@ class File {
   }
 }
 
-class MediaPlan extends File {
+class MediaPlan extends OrderedFile {
   constructor(fileName, format, button) {
     super(fileName, format);
     this.listName = 'mediaplanes'
@@ -140,6 +143,8 @@ class MediaPlan extends File {
     );
     this.listLink.prepend(this.isReadyPrompt);
     mediaPrompt = this.isReadyPrompt;
+    mobileMediasButton.classList.add('in-preparation');
+    mobileMediasButton.classList.remove('ready');
   }
 
   _promptReady() {
@@ -150,10 +155,12 @@ class MediaPlan extends File {
     this.isReadyPrompt.querySelector('.prompt-text').innerHTML = `
     Медиаплан от ${now} готов
     `
+    mobileMediasButton.classList.remove('in-preparation');
+    mobileMediasButton.classList.add('ready');
   }
 }
 
-class MReport extends File {
+class MReport extends OrderedFile {
   constructor(fileName, format, button) {
     super(fileName, format);
     this.listName = 'reports'
@@ -172,6 +179,8 @@ class MReport extends File {
     );
     this.listLink.prepend(this.isReadyPrompt);
     reportPrompt = this.isReadyPrompt;
+    mobileReportsButton.classList.add('in-preparation');
+    mobileReportsButton.classList.remove('ready');
   }
 
   _promptReady() {
@@ -182,6 +191,8 @@ class MReport extends File {
     this.isReadyPrompt.querySelector('.prompt-text').innerHTML = `
     Медиаплан от ${now} готов
     `
+    mobileReportsButton.classList.remove('in-preparation');
+    mobileReportsButton.classList.add('ready');
   }
 
 }
@@ -195,6 +206,34 @@ function newReportCreate(
   const pl = new MReport(companyName, format, button);
 }
 
+function hideFileCurtain() {
+  document.querySelector('.requests__curtain').classList.add('d-none')
+  document.querySelectorAll('.requests-list').forEach((el) => {
+    el.classList.remove('d-none')
+  });
+
+  mediaOrderButton.removeEventListener('click', hideFileCurtain);
+  mobileMediasButton.classList.add('activated');
+  mobileReportsButton.classList.add('activated');
+
+  // mobileMediasButton.addEventListener('click', toggleFileList);
+  // mobileReportsButton.addEventListener('click', toggleFileList);
+}
+
+const toggleFileList = () => {
+  const filelist = document.querySelector('.requests');
+  const wrapper = filelist.querySelector('.requests-wrapper');
+
+  wrapper.style.flexDirection = 'column';
+
+  if (displayList) {
+    filelist.style.display = 'block';
+  } else {
+    filelist.style.display = 'none';
+  }
+  displayList = !displayList;
+}
+
 mediaOrderButton.addEventListener('click', () => {
   const pl = newMediaPlanCreate();
 })
@@ -202,13 +241,5 @@ reportOrderButton.addEventListener('click', () => {
   const rep = newReportCreate();
 })
 
-function hideFileCurtain() {
-  document.querySelector('.requests__curtain').classList.add('d-none')
-  document.querySelectorAll('.requests-list').forEach((el) => {
-    el.classList.remove('d-none')
-  });
-  mediaOrderButton.removeEventListener('click', hideFileCurtain);
-}
-
-mediaOrderButton.addEventListener('click', hideFileCurtain)
-reportOrderButton.addEventListener('click', hideFileCurtain)
+mediaOrderButton.addEventListener('click', hideFileCurtain);
+reportOrderButton.addEventListener('click', hideFileCurtain);

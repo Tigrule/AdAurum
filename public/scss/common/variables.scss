@@ -1,7 +1,10 @@
-$middle-max-screen-width: 991px;
+$middle-max-screen-width: 1199px;
+$mobile-max-screen-width: 767px;
+
 $middle-width: 769px;
 $desktop-width: 1200px;
 $chat-content-height: 596px;
+$mobile-chat-content-height: 730px;
 $mediaplanes-list-height: 222px;
 $reports-list-height: 172px;
 $body-background: #F5F5F5;
@@ -11,12 +14,15 @@ $icon-padding: calc(($icon-outer-size - $icon-inner-size) / 2);
 $blue-1: #2676EE;
 $gray-bg-1: #F5F5F5;
 $gray-bg-2: #EBEBEB;
+$gray-bg-3: #CBCBCB;
 $grey-1: #949494;
 $grey-2: #525252;
+$grey-3: #797979;
+$grey-scroll: #b5b5b5;
 $pink-1: #EE26C2;
 $pink-2: #F4D4ED;
 $white-1: #fff;
 $content-block-whitebg: #fff;
 $content-block-radius: 20px;
-$arrow-up-path: url(../source/images/arrow-up.svg)
+$arrow-up-path: url(../source/images/arrow-up.svg);
 // $main-font: 

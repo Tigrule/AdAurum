@@ -1,14 +1,26 @@
-@media (max-width: 991px) {
-  
-main {
-  .row {
-    flex-wrap: wrap;
-    gap: 20px;
-    height: auto
-  }
+@media (max-width: $middle-max-screen-width) {
 
-  .content-block {
-    padding: 20px;
+  main {
+    .row {
+      flex-wrap: wrap;
+      gap: 20px;
+      height: auto
+    }
+
+    .content-block {
+      padding: 20px;
+    }
   }
 }
+
+@media (max-width: $mobile-max-screen-width) {
+  main {
+    padding: 0;
+    .row {
+      gap: 0;
+    }
+    .content-block {
+      border-radius: 0;
+    }
+  }
 }

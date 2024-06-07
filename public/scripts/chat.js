@@ -112,51 +112,6 @@ class Message {
 }
 
 const chatSubmitFunction = (e) => {
-  (e) => {
-    e.preventDefault();
-    if (messageTextArea.value) {
-      document.querySelector('.chat-curtain').classList.add('d-none')
-      addClientMessage(messageTextArea.value);
-      messageTextArea.value = '';
-      const sendMessage = new Promise((resolve, reject) => {
-        setTimeout(() => {
-          resolve({
-            person: helper,
-            message: `Мы получили ваше сообщение, работаем над вашим вопросом.`,
-            date: new Date(),
-            type: 'answer',
-          }
-          );
-        }, 2000)
-      }
-      );
-      sendMessage.then(
-        result => {
-          let { person, message, date, type } = result;
-          new Message(person, message, date, type);
-        }
-      )
-    } else return;
-  }
-};
-
-document.addEventListener('keydown', event => {
-  if (event.code === 'Enter') {
-    event.preventDefault();
-    if (messageTextArea.value) {
-      console.log('enter was pressed');
-  
-      // sendForm.dispatchEvent(enterSubmit); 
-      sendForm.submit();
-    } else {
-      messageTextArea.reportValidity();
-    }
-    messageTextArea.value = '';
-  }
-});
-
-
-sendForm.addEventListener('submit', (e) => {
   e.preventDefault();
   if (messageTextArea.value) {
     document.querySelector('.chat-curtain').classList.add('d-none')
@@ -182,7 +137,26 @@ sendForm.addEventListener('submit', (e) => {
     )
   } else return;
 }
-)
+
+
+
+
+sendForm.addEventListener('submit', chatSubmitFunction);
+
+document.addEventListener('keydown', event => {
+  if (event.code === 'Enter') {
+    event.preventDefault();
+    if (messageTextArea.value) {
+      console.log('enter was pressed');
+  
+      // sendForm.dispatchEvent(enterSubmit);
+      chatSubmitFunction(event);
+    } else {
+      messageTextArea.reportValidity();
+    }
+    messageTextArea.value = '';
+  }
+});
 
 messageTextArea.onfocus = function () {
   document.querySelector('.chat-textfield').classList.add('pink-border')

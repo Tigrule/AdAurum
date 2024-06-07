@@ -1,0 +1,44 @@
+.footer {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 21.75px;
+
+  background: $gray-bg-2;
+  padding: 27px 20px;
+  margin-top: 60px;
+
+  .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    
+
+  }
+
+  &__logo {
+    width: fit-content;
+    margin-right: 9%;
+  }
+
+  .footer-item {
+    cursor: pointer;
+    &-icon {
+      width: 24px;
+      height: 24px;
+    }
+
+    &_with-icon, .footer-langs {
+      @include icon-with-content(12px)
+    }
+
+    .footer-langs {
+      @include icon-with-content(12px);
+      &__item {
+        &.active {
+          color: $pink-1;
+        }
+      }
+    }
+  }
+}

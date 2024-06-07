@@ -1,5 +1,110 @@
 @media (max-width: $middle-max-screen-width) {
   main .chat {
-    
+    &__content {
+      &-main {
+        .chat-messages {
+          .chat-curtain {
+            &__image {
+              img {
+                width: 180px;
+                height: 183px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $mobile-max-screen-width) {
+  main {
+    .chat {
+      padding-left: 0;
+      padding-right: 0;
+
+      &__header {
+        &-wrapper {
+          padding: 0 20px 30px;
+
+          .helper-info {
+            width: 100%;
+            &__icon {
+              &_mobile {
+                display: block;
+              }
+
+              &_desktop {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+
+      &__content {
+        max-height: $mobile-chat-content-height;
+
+        &-wrapper {
+          border-radius: 0;
+        }
+
+        &-main {
+          // gap: 33px;
+          justify-content: start;
+          height: fit-content;
+
+          .chat-messages {
+            .chat-curtain {
+              max-width: 271px;
+              margin-bottom: 63px;
+
+              &__image {
+                img {
+                  width: 130px;
+                  height: 132px;
+                }
+              }
+
+              &__text {
+                font-size: 14px;
+                line-height: 20.3px;
+              }
+            }
+
+            .chat-message {
+              padding-right: 20px;
+
+              &__text {
+                font-size: 14px;
+                line-height: 20.3px;
+              }
+              &__avatar {
+                img {
+                  width: 36px;
+                  height: 36px;
+                }
+              }
+            }
+
+            .answer {
+              margin-right: 36px;
+            }
+          }
+
+          .chat-order {
+            .buttons {
+              flex-direction: column-reverse;
+              align-items: flex-end;
+
+              &__button {
+                font-size: 14px;
+                line-height: 16.94px;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
